@@ -1,5 +1,5 @@
 import sys
-from lxml import etree, objectify
+from lxml import objectify
 
 
 def parseLog(file):
@@ -8,20 +8,11 @@ def parseLog(file):
     """
     file = sys.argv[1]
     handler = open(file).read()
-    # parser = etree.XMLParser(remove_comments=True)
-    # tree = objectify.parse(file, parser=parser)
+
     parser = objectify.makeparser(recover=True)
     root = objectify.fromstring(handler, parser)
     print(root.attrib['venue'])
-    # race_attrib = root.race.nomination
-    # for k in root.race.attrib:
-    #     print(k.tag, k.text)
-    # for race in root.race.getchildren():
-    #     for e in race.getchildren():
-    #         print(e.tag, e.text)
-    # for race in stuff.getchildren():
-    #     race_attrib = race.attrib
-    #     print(race_attrib)
+
     attrs = [
         'id', 'number', 'horse', 'barrier', 'weight', 'goodtrack',
         'thisdistance', 'firstup', 'secondup', 'decimalmargin'
