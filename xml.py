@@ -15,12 +15,14 @@ def parseLog(file):
 
     attrs = [
         'id', 'number', 'horse', 'barrier', 'weight', 'goodtrack',
-        'thisdistance', 'firstup', 'secondup', 'decimalmargin'
+        'thisdistance', 'firstup', 'secondup', 'decimalmargin', 'trainernumber', 'rsbtrainername',
+        'trainertrack', 'jockeynumber', 'jockeysurname', 'jockeyfirstname'
     ]
     for noms in root.race:
         print("#######################################")
         print('id', 'number', 'horse', 'barrier', 'weight', 'goodtrack',
-              'thisdistance')
+              'thisdistance', 'firstup', 'secondup', 'decimalmargin', 'trainernumber', 'rsbtrainername', 'trainertrack', 'jockeynumber', 'jockeysurname',
+              'jockeyfirstname')
         print(noms.attrib.get('id'))
         for item in noms.nomination:
             try:
